@@ -32,6 +32,6 @@ data class ParentConfig(
     val elapsedTimeSecondsToday: Int = 0,
     val lastTimeResetTimestamp: Long = System.currentTimeMillis(),
     val blockedKeywords: String = "adult,violence,scary,kill,fight,blood,horror,sexy,bad,weapons",
-    val allowedPlatforms: String = "YouTube,TikTok,Vimeo,Facebook",
+    val allowedPlatforms: String = "Facebook,YouTube,TikTok,Instagram,Dailymotion",
     val isSafeFiltersEnabled: Boolean = true
 )

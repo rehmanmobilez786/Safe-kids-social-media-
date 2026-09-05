@@ -450,7 +450,7 @@ fun ControlsView(
                     )
                     Spacer(modifier = Modifier.height(12.dp))
 
-                    val allPlatforms = listOf("YouTube", "TikTok", "Vimeo", "Facebook")
+                    val allPlatforms = listOf("Facebook", "YouTube", "TikTok", "Instagram", "Dailymotion")
                     val allowed = config.allowedPlatforms.split(",").map { it.trim() }
 
                     allPlatforms.forEach { platform ->
@@ -465,10 +465,12 @@ fun ControlsView(
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Icon(
                                     imageVector = when (platform) {
+                                        "Facebook" -> Icons.Filled.ThumbUp
                                         "YouTube" -> Icons.Filled.PlayArrow
                                         "TikTok" -> Icons.Filled.Audiotrack
-                                        "Vimeo" -> Icons.Filled.VideoLibrary
-                                        else -> Icons.Filled.ThumbUp
+                                        "Instagram" -> Icons.Filled.CameraAlt
+                                        "Dailymotion" -> Icons.Filled.VideoLibrary
+                                        else -> Icons.Filled.Public
                                     },
                                     contentDescription = platform,
                                     tint = MaterialTheme.colorScheme.secondary,
@@ -655,11 +657,11 @@ fun WhitelistView(
                             style = MaterialTheme.typography.labelMedium,
                             fontWeight = FontWeight.Bold
                         )
-                        Row(
+                        androidx.compose.foundation.lazy.LazyRow(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            listOf("YouTube", "TikTok", "Vimeo", "Facebook").forEach { plat ->
+                            items(listOf("Facebook", "YouTube", "TikTok", "Instagram", "Dailymotion")) { plat ->
                                 Row(
                                     verticalAlignment = Alignment.CenterVertically,
                                     modifier = Modifier.clickable { platform = plat }

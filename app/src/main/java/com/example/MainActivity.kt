@@ -40,12 +40,30 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         is Screen.VideoPlayer -> {
+                            val allVideos by viewModel.allVideos.collectAsState()
+                            val likedVideoIds by viewModel.likedVideoIds.collectAsState()
+                            val savedVideoIds by viewModel.savedVideoIds.collectAsState()
+                            val followedChannels by viewModel.followedChannels.collectAsState()
+                            val kidComments by viewModel.kidComments.collectAsState()
+
                             SafeVideoPlayer(
                                 video = screen.video,
+                                allVideos = allVideos,
                                 isUrdu = isUrdu,
                                 onBack = {
                                     viewModel.navigateBack()
-                                }
+                                },
+                                onSelectNextVideo = { nextVideo ->
+                                    viewModel.selectVideo(nextVideo)
+                                },
+                                isLiked = likedVideoIds.contains(screen.video.id),
+                                onToggleLike = { viewModel.toggleLike(screen.video.id) },
+                                isSaved = savedVideoIds.contains(screen.video.id),
+                                onToggleSave = { viewModel.toggleSave(screen.video.id) },
+                                followedChannels = followedChannels,
+                                onToggleFollowChannel = { channel -> viewModel.toggleFollowChannel(channel) },
+                                comments = kidComments[screen.video.id] ?: emptyList(),
+                                onAddComment = { comment -> viewModel.addKidComment(screen.video.id, comment) }
                             )
                         }
                         is Screen.ParentUnlock, is Screen.ParentDashboard -> {

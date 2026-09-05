@@ -8,27 +8,29 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 private val DarkColorScheme = darkColorScheme(
-    primary = PrimaryDark,
-    secondary = SecondaryDark,
-    tertiary = SoftYellow,
-    background = BackgroundDark,
-    surface = SurfaceDark,
-    onPrimary = Color.Black,
-    onSecondary = Color.Black,
+    primary = FacebookBlue,
+    secondary = FacebookLightBlue,
+    tertiary = FacebookReactionYellow,
+    background = FacebookDarkBg,
+    surface = FacebookSurface,
+    onPrimary = Color.White,
+    onSecondary = FacebookTextPrimary,
     onBackground = Color.White,
     onSurface = Color.White
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = SoftTeal,
-    secondary = CoralOrange,
-    tertiary = SoftYellow,
-    background = IceBlue,
+    primary = FacebookBlue,
+    primaryContainer = FacebookLightBlue,
+    secondary = FacebookBlue,
+    secondaryContainer = FacebookDivider,
+    tertiary = FacebookReactionYellow,
+    background = FacebookFeedBg,
     surface = Color.White,
     onPrimary = Color.White,
     onSecondary = Color.White,
-    onBackground = DarkSlate,
-    onSurface = DarkSlate
+    onBackground = FacebookTextPrimary,
+    onSurface = FacebookTextPrimary
 )
 
 @Composable
