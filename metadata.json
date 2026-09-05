@@ -1,0 +1,6 @@
+{
+  "name": "SafeKid View",
+  "description": "A secure kids educational video viewer with complete parental monitoring controls, timers, search filters, and custom whitelisting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
